@@ -32,6 +32,10 @@ int get_wrapped_index(int x, int y) {
     return wrapped_y * MAP_SIZE + wrapped_x;
 }
 
+void toggle_cell(int x_selected, int y_selected) {
+    game_map[get_wrapped_index(x_selected, y_selected)] ^= 1;
+}
+
 void update_game() {
     static uint8_t new_map[MAP_SIZE * MAP_SIZE];
 

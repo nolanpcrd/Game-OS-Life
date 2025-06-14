@@ -6,6 +6,7 @@
 
 #define SCREEN_WIDTH 1024
 #define SCREEN_HEIGHT 768
+#define UART0_BASE    0x3F201000
 
 // Fonctions d'initialisation et de dessin
 int screen_init(void);
@@ -19,10 +20,11 @@ void draw_empty_rect(int x, int y, int w, int h, uint32_t color);
 void draw_letter(int x, int y, char letter, uint32_t color, int font_size, bool bold);
 void draw_string(int x, int y, const char* str, uint32_t color, int font_size, int letter_spacing, bool bold);
 int abs(int n);
+char read_uart();
 
 // Export du pointeur framebuffer et informations sur l'écran pour d'autres modules
 extern volatile uint32_t* get_framebuffer_ptr(void);
-extern int get_screen_pitch(void);
+extern int get_sceen_pitch(void);
 extern int get_screen_depth(void);
 
 #endif // SCREEN_H
